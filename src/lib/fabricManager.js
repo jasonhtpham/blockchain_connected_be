@@ -251,6 +251,39 @@ class FabricManager {
     }
   }
 
+  getBalanceof = async () => {
+    try {
+      let result = await ercContract.evaluateTransaction('BalanceOf');
+      return result.toString('utf8');
+      // return result;
+    } catch (err) {
+      fabricLogger.info(`Error when get identity: ${err}`);
+      return err;
+    }
+  }
+
+  getName = async () => {
+    try {
+      let result = await ercContract.evaluateTransaction('Name');
+      return result.toString('utf8');
+      // return result;
+    } catch (err) {
+      fabricLogger.info(`Error when get identity: ${err}`);
+      return err;
+    }
+  }
+
+  getTotalSupply = async () => {
+    try {
+      let result = await ercContract.evaluateTransaction('TotalSupply');
+      return result.toString('utf8');
+      // return result;
+    } catch (err) {
+      fabricLogger.info(`Error when get identity: ${err}`);
+      return err;
+    }
+  }
+
   // Example chaincode invocation
   getAllCerts = async () => {
     try {
